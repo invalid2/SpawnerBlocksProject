@@ -1,21 +1,12 @@
 package com.invalidname.spawnerblocks.blocks;
 
-
-import java.util.List;
-
-import dangerzone.DangerZone;
-import dangerzone.GameModes;
-import dangerzone.Player;
 import dangerzone.World;
 import dangerzone.blocks.Block;
 import dangerzone.entities.Entity;
-import dangerzone.entities.EntityLiving;
-import dangerzone.entities.Flag;
-import dangerzone.entities.Temperament;
 
 public class BlockGuardian extends Block {
 	
-	float health = 10;
+	float health = 20;
 	
 	public BlockGuardian(String n, String txt) {
 		super(n, txt);
@@ -37,8 +28,8 @@ public class BlockGuardian extends Block {
 			System.out.println();
 			Entity entity = w.createEntityByName("SpawnerBlocks:Guardian", d, x+0.5, y, z+0.5);
 			entity.init();
-			entity.setHealth(health);
 			entity.doFromSpawner();
+			entity.setHealth(health);
 			w.setblock(d, x, y, z, 0);
 			w.spawnEntityInWorld(entity);
 			w.playSound("SpawnerBlocks:guardian_activate", d, x, y, z, 1.0f, 1.0f);

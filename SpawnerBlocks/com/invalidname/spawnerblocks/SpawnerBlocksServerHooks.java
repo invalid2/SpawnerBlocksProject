@@ -1,5 +1,6 @@
 package com.invalidname.spawnerblocks;
 
+import dangerzone.DangerZone;
 import dangerzone.GameModes;
 import dangerzone.InventoryContainer;
 import dangerzone.Player;
@@ -48,6 +49,11 @@ public class SpawnerBlocksServerHooks extends ServerHooks {
 				}
 			}
 		}
+	}
+	
+	@SuppressWarnings("static-access")
+	public void onBlockBroken(Player p, int d, int x, int y, int z, int s) {
+		DangerZone.wr.focus_side = s;
 	}
 	
 }

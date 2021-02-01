@@ -5,7 +5,6 @@ import org.newdawn.slick.opengl.Texture;
 
 import dangerzone.DangerZone;
 import dangerzone.InventoryContainer;
-import dangerzone.Player;
 import dangerzone.TextureMapper;
 import dangerzone.WorldRenderer;
 import dangerzone.blocks.Block;
@@ -46,15 +45,17 @@ public class GiantPickaxe extends Item {
 		GL11.glTranslatef(0, -10, 2);
 		GL11.glScalef(1.2f, 1.2f, 1.2f);
 		if(ma != null)ma.render();
+		//System.out.println("yaw:"+e.rotation_yaw+", roll:"+e.rotation_roll_head+", pitch:"+e.rotation_pitch_head);
 		
 	}
 	
 	@SuppressWarnings("static-access")
 	public void onBlockBroken(Entity ent, int dimension, int x, int y, int z, int wasbid) {
-		System.out.println(DangerZone.wr.focus_side);
+		//System.out.println(DangerZone.wr.focus_side);
 		int blockside = DangerZone.wr.focus_side;
 		
-		if(DangerZone.world == null) {
+		
+		/*if(DangerZone.world == null) {
 			//Change blockside based on the direction the player is facing, for multiplayer compability
 			if((ent.rotation_yaw >= 45 && ent.rotation_yaw < 135) || (ent.rotation_yaw >= 225 && ent.rotation_yaw < 315)) {
 				blockside = 3;
@@ -63,7 +64,7 @@ public class GiantPickaxe extends Item {
 			}
 			if((ent.rotation_pitch_head > 40 && ent.rotation_pitch_head <= 90) || (ent.rotation_pitch_head < 330 && ent.rotation_pitch_head > 90))
 				blockside = 0;
-		}
+		}*/
 		
 		
 		//System.out.println("side: "+blockside+", pitch:"+ent.rotation_pitch_head);

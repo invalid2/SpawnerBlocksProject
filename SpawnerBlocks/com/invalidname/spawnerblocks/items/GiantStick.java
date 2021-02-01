@@ -1,7 +1,6 @@
 package com.invalidname.spawnerblocks.items;
 
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
 import org.newdawn.slick.opengl.Texture;
 
 import dangerzone.DangerZone;
@@ -21,7 +20,7 @@ public class GiantStick extends Item {
 		
 	}
 	
-	public void renderMeHeld(WorldRenderer wr, Entity e, InventoryContainer ic, boolean isdisplay){
+	public void renderMeHeld(WorldRenderer wr, Entity e, InventoryContainer ic, boolean isdisplay) {
 		//texture is already auto-loaded for us
 				if(texturebig == null){
 					texturebig = TextureMapper.getTexture("spawnerblocksres/items/"+"giantstick_texture.png");

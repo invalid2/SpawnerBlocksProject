@@ -1,7 +1,6 @@
 package com.invalidname.spawnerblocks;
 
 import com.invalidname.spawnerblocks.biomes.SkyCubesBiome;
-import com.invalidname.spawnerblocks.biomes.TestBiome;
 import com.invalidname.spawnerblocks.blocks.BlockArtificialSpawner;
 import com.invalidname.spawnerblocks.blocks.BlockGuardian;
 import com.invalidname.spawnerblocks.blocks.BlockTrollCockroachOre;
@@ -65,7 +64,7 @@ public class SpawnerBlocksMain extends BaseMod {
 	
 	//Mod constants
 	public static final String MOD_NAME = "SpawnerBlocks";
-	public static final String DZ_VERSION = "2.0";
+	public static final String DZ_VERSION = "2.1";
 	public static final String MOD_VERSION = "1.0";
 	
 	public SpawnerBlocksMain () {
@@ -84,16 +83,13 @@ public class SpawnerBlocksMain extends BaseMod {
 	public static WorldDecorator spwd = new SpawnerBlocksWorldDecorator();
 	
 	//Dimensions
-	public static Dimension testdim = new Dimension("SpawnerBlocks:Debug Dimension", 0.4f, 0.9f, 1f);
 	//public static Dimension skycurrents = new Dimension("SpawnerBlocks:Sky Currents Dimension", 0.4f, 0.9f, 1f);
 	
 	
 	//Biome managers
-	public static BiomeManager testbm = new BiomeManager();
 	//public static BiomeManager skycurrentsbiomemanager = new BiomeManager();
 	
 	//Biomes
-	public static Biome testb = new TestBiome("SpawnerBlocks:Test Biome");
 	//public static Biome skycubesbiome = new SkyCubesBiome("SpawnerBlocks: Sky Cubes Biome");
 	
 	//Models
@@ -207,13 +203,12 @@ public class SpawnerBlocksMain extends BaseMod {
 		WorldDecorators.registerWorldDecorator(spwd);
 		
 		//Dimensions
-		Dimensions.registerDimension(testdim);
 		//Dimensions.registerDimension(skycurrents);
+		
 		//Biome Managers
-		testdim.registerBiomeManager(testbm);
 		//skycurrents.registerBiomeManager(skycurrentsbiomenanager);
+		
 		//Biomes
-		testbm.registerBiome(testb);
 		//skycurrentsbiomenanager.registerBiome(skycubesbiome);
 		
 		//Entities

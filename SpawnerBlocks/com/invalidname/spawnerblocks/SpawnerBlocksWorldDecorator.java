@@ -63,10 +63,10 @@ public class SpawnerBlocksWorldDecorator extends WorldDecorator{
 				//return;
 			}
 			
-			if(world.rand.nextInt(384) == 0) {
-				doBattleTower( world, dimension, chunkx, chunkz);
+			//if(world.rand.nextInt(384) == 0) {
+				//doBattleTower( world, dimension, chunkx, chunkz);
 				//return;
-			}
+			//}
 			
 			if(world.rand.nextInt(256) == 0) {
 				//Secret buried treasure, oh my!

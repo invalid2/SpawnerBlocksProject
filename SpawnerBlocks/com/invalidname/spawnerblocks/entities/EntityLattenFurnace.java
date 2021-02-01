@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.invalidname.spawnerblocks.Cremating;
 import com.invalidname.spawnerblocks.CrematingRecipe;
-import com.invalidname.spawnerblocks.blocks.LyMachine;
 
 import dangerzone.DangerZone;
 import dangerzone.InventoryContainer;
@@ -41,7 +40,6 @@ public class EntityLattenFurnace extends Entity {
 	
 	public void update(float deltaT){
 		int bid = world.getblock(dimension,  (int)posx, (int)posy, (int)posz);
-		int meta = world.getblockmeta(dimension,  (int)posx, (int)posy, (int)posz);
 		if(bid != getBID()){ //check to see if our block types are there
 			if(world.isServer){
 				blocktries++;
@@ -201,7 +199,7 @@ public class EntityLattenFurnace extends Entity {
 			this.deadflag = true;
 			return false;
 		}
-		Blocks.rightClickOnBlock(getBID(), p, dimension, (int)posx, (int)posy, (int)posz);
+		Blocks.rightClickOnBlock(getBID(), p, dimension, (int)posx, (int)posy, (int)posz, 0);
 		return false;
 	}
 	

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Content>
+	<Line type="player">A fusion of chock and surprise hits as you read the paper on your hand.</Line>
+	
+	<Line type="player">
+		Latten furnace? Ly? Lychemist? What even is this stuff?
+	</Line>
+	<Line type="player">
+		To feed your ever growing curiosity you continue to read.
+	</Line>
+	<Title>The Latten Furnace</Title>
+	<Line>The Latten Furnace, whose original inventor and name is now lost to time,</Line>
+	<Line>is simply the best tool for the begginer lychemist.</Line>
+	<Line> Being relatively to build and maintain, the furnace permits the extraction</Line>
+	<Line>of Ly from matter trown at it, better yet: it's capable of using its own ashes</Line>
+	<Line>as a source fuel! However, the design has it's limits, the Ly you get from </Line>
+	<Line>burning ashes is minimal and you can't really store any of the thing,</Line>
+	<Line>instead the ly is released to the blocks nearby.</Line>
+</Content>

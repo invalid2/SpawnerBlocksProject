@@ -1,24 +1,18 @@
 package com.invalidname.spawnerblocks.items;
 
-import java.awt.event.KeyEvent;
-import java.util.List;
 
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.opengl.Texture;
 
 import dangerzone.DangerZone;
 import dangerzone.GameModes;
 import dangerzone.InventoryContainer;
-import dangerzone.Player;
 import dangerzone.TextureMapper;
 import dangerzone.WorldRenderer;
-import dangerzone.blocks.Block;
 import dangerzone.blocks.Blocks;
 import dangerzone.entities.Entity;
 import dangerzone.gui.InventoryMenus;
 import dangerzone.items.Item;
-import dangerzone.threads.Server;
 
 public class GiantAxe extends Item {
 	Texture texturebig = null;

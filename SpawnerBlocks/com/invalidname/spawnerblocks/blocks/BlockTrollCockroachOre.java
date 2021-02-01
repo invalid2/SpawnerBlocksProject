@@ -1,7 +1,6 @@
 package com.invalidname.spawnerblocks.blocks;
 
 import dangerzone.Player;
-import dangerzone.ServerHooker;
 import dangerzone.blocks.Block;
 import dangerzone.entities.Entity;
 
@@ -28,7 +27,6 @@ public class BlockTrollCockroachOre extends Block {
 			p.world.spawnEntityInWorld(cockroach);
 		}
 		
-		ServerHooker.onBlockBroken(p, dimension, x, y, z);
 		return; //your block is about to be set to 0.
 	}
 }

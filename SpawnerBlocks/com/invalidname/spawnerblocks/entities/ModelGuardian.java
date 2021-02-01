@@ -44,9 +44,23 @@ public class ModelGuardian extends ModelBase {
 	public void render(Entity entity, float lifetimeticker, float velocity, float headupdown, float headleftright, float headtilt, float deathfactor) {
 		super.render(entity, lifetimeticker, velocity, headupdown, headleftright, headtilt, deathfactor);
 		
+		if(headleftright < -90) {
+			headleftright = -90;
+		}
+		
+		if(headleftright > 90) {
+			headleftright = 90;
+		}
+		//System.out.println(headleftright);
 		//Eye.offsetX = Math.round((2*headleftright/90))-3;
 		Eye.offsetX = Math.round((2*headleftright/75)-3);
+		if(Eye.offsetX < -2) {
+			Eye.offsetX = -2;
+		}
 		
+		if(Eye.offsetX > 1) {
+			Eye.offsetX = 1;
+		}
 		Body.render(deathfactor);
 		HandLeft.render(deathfactor);
 		HandRight.render(deathfactor);

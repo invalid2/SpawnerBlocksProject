@@ -19,7 +19,7 @@ public class LumpLattenMelting extends Item {
 	public boolean rightClickOnBlock(Player p, int dimension, int x, int y, int z, int side){
 		int bid = p.world.getblock(dimension, x, y, z);
 		
-		if(bid == Blocks.furnace.blockID) {
+		if(bid == Blocks.furnace.blockID || bid == Blocks.furnaceOn.blockID) {
 			Entity e = DangerZone.server_world.createEntityByName("SpawnerBlocks:EntityLattenFurnace", dimension, x+0.5f, y+0.5f, z+0.5f);
 			p.world.setblock(dimension, x, y, z, SpawnerBlocksMain.lattenfurnace.blockID);
 			e.init();
