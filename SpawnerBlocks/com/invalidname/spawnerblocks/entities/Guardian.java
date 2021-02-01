@@ -99,7 +99,7 @@ public class Guardian extends EntityLiving {
 				if(targetentity == null && attempts >= 0 ) {
 					double angle = Math.toRadians(world.rand.nextInt(360));
 					target = new TargetHelper(spawnx+perimeter*Math.sin(angle), spawny+3, spawnz+perimeter*Math.cos(angle));
-					System.out.println("dddd");
+					//System.out.println("dddd");
 					targetentity = findSomethingToAttack();
 					if(targetentity != null) {
 						float tdir = (float) Math.atan2(targetentity.posx - posx, targetentity.posz - posz);
