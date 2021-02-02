@@ -7,21 +7,18 @@ import com.invalidname.spawnerblocks.SpawnerBlocksMain;
 import dangerzone.DamageTypes;
 import dangerzone.DangerZone;
 import dangerzone.Effects;
-import dangerzone.GameModes;
 import dangerzone.Player;
 import dangerzone.TextureMapper;
-import dangerzone.Utils;
 import dangerzone.World;
 import dangerzone.entities.Entity;
 import dangerzone.entities.EntityLiving;
 import dangerzone.entities.TargetHelper;
 import dangerzone.entities.Temperament;
-import dangerzone.items.Items;
 
 public class Guardian extends EntityLiving {
 	
-	//int perimeter = DangerZone.rand.nextInt(16)+8;
-	int perimeter = 5;
+	int perimeter = DangerZone.rand.nextInt(5)+8;
+	//int perimeter = 5;
 	int safe_distance = 5;
 	double spawnx,spawny,spawnz;
 	public float myspeed = 0;
@@ -37,14 +34,15 @@ public class Guardian extends EntityLiving {
 		this.width = 1.05f;
 		uniquename = "SpawnerBlocks:Guardian";
 		moveSpeed = 0.15f;
+		moveSpeed = 0.25f;
 		canBreateUnderWater = true;
 		this.searchDistance = 32;
 		setMaxHealth(20.0f);
 		setHealth(20.0f);
-		setDefense(4.0f);
-		setAttackDamage(5.0f);
+		setDefense(5.0f);
+		setAttackDamage(10.0f);
 		movefrequency = 45;
-		attackRange = 2;
+		attackRange = 3;
 		setExperience(100);
 		setCanDespawn(false);
 		canFly = true;
@@ -90,48 +88,62 @@ public class Guardian extends EntityLiving {
 		
 		
 		searchcounter++;
-		if(searchcounter >= 10) { //re-target about a second
+		if(searchcounter >= 5) { //re-target about a second
 			searchcounter = 0;
-			if(target.targetx-posx < 0.2 && target.targetx-posx > -0.2 && target.targetz-posz < 0.2 && target.targetz-posz > -0.2) {
-				if(hurtMe != null && hurtMe.deadflag)hurtMe = null;
-				//if(this.world.rand.nextInt(30) == 1)hurtMe = null;
-				targetentity = hurtMe;
+			if(hurtMe != null && hurtMe.deadflag)hurtMe = null;
+			if(this.world.rand.nextInt(30) == 1)hurtMe = null;
+			if(targetentity == null)targetentity = hurtMe;
+			
+			if(targetentity == null)targetentity = findSomethingToAttack();
+			if(targetentity != null)
+				if(!CanProbablySee(dimension, targetentity.posx, targetentity.posy, targetentity.posz, (int)Math.sqrt((posx-targetentity.posx)*(posx-targetentity.posx) + (posz-targetentity.posz)*(posz-targetentity.posz) + (posy-targetentity.posy)*(posy-targetentity.posy))))
+					targetentity = null;
+			
+			if(!isSuitableTarget(targetentity))
+				targetentity = null;
+			
+			if(targetentity != null) {
+				float tdir = (float) Math.atan2(targetentity.posx - posx, targetentity.posz - posz);
+		    	if(tdir < 0)
+		    		tdir += 2*Math.PI;
+				target = new TargetHelper(targetentity, targetentity.posx, targetentity.posy+2+world.rand.nextDouble(), targetentity.posz);
+				setAttacking(true);
+			}else{
+				setAttacking(false);
+			}
+			
+			if(Math.abs(target.targetx-posx) < 0.8 && Math.abs(target.targetz-posz) < 0.8) {
 				if(targetentity == null && attempts >= 0 ) {
+					int bid = -1;
 					double angle = Math.toRadians(world.rand.nextInt(360));
-					target = new TargetHelper(spawnx+perimeter*Math.sin(angle), spawny+3, spawnz+perimeter*Math.cos(angle));
-					//System.out.println("dddd");
-					targetentity = findSomethingToAttack();
-					if(targetentity != null) {
-						float tdir = (float) Math.atan2(targetentity.posx - posx, targetentity.posz - posz);
-				    	if(tdir < 0)
-				    		tdir += 360;
-						target = new TargetHelper(targetentity, targetentity.posx, targetentity.posy+1, targetentity.posz);
-						setAttacking(true);
-					}else{
-						attempts--;
-						setAttacking(false);
+					double rand = world.rand.nextDouble();
+					while(keep_trying > 0) {
+						angle = Math.toRadians(world.rand.nextInt(360));
+						rand = world.rand.nextDouble();
+						bid = world.getblock(dimension, (int) (spawnx+perimeter*Math.sin(angle)), (int) (posy+2), (int) (spawnz+perimeter*Math.cos(angle)));
+						if(bid == 0)break;
+						keep_trying--;
 					}
-					
+					target = new TargetHelper(spawnx+perimeter*Math.sin(angle), posy+2*rand, spawnz+perimeter*Math.cos(angle));
+					//System.out.println("dddd");
+					attempts--;
 					setVarInt(31, attempts);
-				}
-				
-				if(targetentity != null) {
-					target = new TargetHelper(targetentity, targetentity.posx, targetentity.posy+1, targetentity.posz);
-					setAttacking(true);
-				}else{
-					setAttacking(false);
 				}
 				
 				if(toStone) {
 					world.setblock(dimension, (int) (spawnx-0.5), (int) (spawny), (int) (spawnz-0.5), SpawnerBlocksMain.blockguardian.blockID);
 					this.deadflag = true;
 				}
+				
 				if(attempts < 0) {
-					target = new TargetHelper(spawnx, spawny, spawnz);
-					System.out.println(target.targetx+" "+target.targety+" "+target.targetz);
+					target = new TargetHelper(spawnx, spawny+1.5, spawnz);
 					targetentity = null;
 					toStone = true;
 				}
+			}
+
+			if(world.getblock(dimension, (int)this.posx, (int)this.posy-2, (int)this.posz) != 0){
+				target.targety += 0.75;
 			}
 			
 		}
@@ -139,8 +151,8 @@ public class Guardian extends EntityLiving {
 		/*
 		 * See if we should attack!
 		 */
-		if(targetentity != null && this.world.rand.nextInt(8) == 1){ //about once a second
-			if(isAtOptimalDistance(this.getDistanceFromEntity(targetentity))) {
+		if(targetentity != null && this.world.rand.nextInt(6) == 1){ //about once a second
+			if(this.getDistanceFromEntity(targetentity) < attackRange+targetentity.getWidth()/2+this.getWidth()/2) {
 				float dmg = this.getAttackDamage();
 				int dt = DamageTypes.HOSTILE;
 				targetentity.doAttackFrom(this, dt, dmg);
@@ -150,7 +162,7 @@ public class Guardian extends EntityLiving {
 		
 		//Now rotate into direction we should be heading, and update motion!
     	float dy = (float) (target.targety - this.posy);
-    	motiony += 0.120f * deltaT; //Counter a little gravity!
+    	motiony += 0.120f * deltaT * Math.random(); //Counter a little gravity!
     	dy = dy/20f;
 		if(dy > 0.20f)dy = 0.20f;
 		if(dy < -0.20f)dy = -0.20f;
@@ -160,8 +172,7 @@ public class Guardian extends EntityLiving {
 		
 		float cdir = (float) Math.toRadians(rotation_yaw);
     	float tdir = (float) Math.atan2(target.targetx - posx, target.targetz - posz);
-    	if(tdir < 0)
-    		tdir += 360;
+    	
     	float ddiff = tdir - cdir;
     	while(ddiff>Math.PI)ddiff -= Math.PI*2;
     	while(ddiff<-Math.PI)ddiff += Math.PI*2;

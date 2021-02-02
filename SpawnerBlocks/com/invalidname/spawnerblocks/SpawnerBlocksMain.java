@@ -1,6 +1,5 @@
 package com.invalidname.spawnerblocks;
 
-import com.invalidname.spawnerblocks.biomes.SkyCubesBiome;
 import com.invalidname.spawnerblocks.blocks.BlockArtificialSpawner;
 import com.invalidname.spawnerblocks.blocks.BlockGuardian;
 import com.invalidname.spawnerblocks.blocks.BlockTrollCockroachOre;
@@ -41,7 +40,6 @@ import dangerzone.Crafting;
 import dangerzone.CreatureTypes;
 import dangerzone.DangerZone;
 import dangerzone.DangerZoneBase;
-import dangerzone.Dimension;
 import dangerzone.Dimensions;
 import dangerzone.Ores;
 import dangerzone.ServerHooker;
@@ -49,8 +47,6 @@ import dangerzone.ServerHooks;
 import dangerzone.Spawnlist;
 import dangerzone.WorldDecorator;
 import dangerzone.WorldDecorators;
-import dangerzone.biomes.Biome;
-import dangerzone.biomes.BiomeManager;
 import dangerzone.blocks.Block;
 import dangerzone.blocks.BlockSpawner;
 import dangerzone.blocks.Blocks;

@@ -2,6 +2,8 @@ package com.invalidname.spawnerblocks.entities;
 
 import org.newdawn.slick.opengl.Texture;
 
+import com.invalidname.spawnerblocks.SpawnerBlocksMain;
+
 import dangerzone.DamageTypes;
 import dangerzone.Effects;
 import dangerzone.TextureMapper;
@@ -52,6 +54,24 @@ public class Dracorat extends EntityLiving {
 		//if(e.getWidth()*e.getHeight() > 0.063f)return true;
 		
 		return false;
+	}
+	
+	public void doDeathDrops() {
+		if(world.rand.nextInt(8) == 0) {
+			Utils.doDropRand(world, 0, SpawnerBlocksMain.dracwing.itemID, 0f, dimension, posx, posy, posz);
+		} else {
+			int howmany = world.rand.nextInt(3);
+			int i;
+			for(i=0;i<howmany;i++){
+				Utils.doDropRand(world, 0, world.rand.nextInt(2) == 0? SpawnerBlocksMain.dracmembrane.itemID : SpawnerBlocksMain.dracscale.itemID, 0f, dimension, posx, posy, posz);
+			}
+			
+		}
+		
+		
+		if(world.rand.nextInt(5)==1)Utils.doDropRand(world, 0, SpawnerBlocksMain.trophydracorat.itemID, 1f, dimension, posx, posy, posz);
+		
+		super.doDeathDrops();
 	}
 	
 	public void doEntityAction(float deltaT){	

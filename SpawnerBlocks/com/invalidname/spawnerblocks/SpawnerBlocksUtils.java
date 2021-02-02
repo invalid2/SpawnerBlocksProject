@@ -5,7 +5,6 @@ import dangerzone.Player;
 import dangerzone.StuffList;
 import dangerzone.Utils;
 import dangerzone.World;
-import dangerzone.blocks.BlockRotation;
 import dangerzone.blocks.Blocks;
 import dangerzone.entities.Entity;
 import dangerzone.items.Item;
@@ -63,7 +62,13 @@ public class SpawnerBlocksUtils {
 		}
 	}
 	/*
-	 * Generic, no checks, puts int array build on the world based on the corresponding dictionary array 
+	 * Generic, no checks, puts int array build on the world based on the corresponding dictionary array
+	 * Special block codes:
+	 * 0 - nothing is put
+	 * -1 - replace with air
+	 * -2 - chest
+	 * -3 - furnace
+	 * -4 - % replace with block, else airs 
 	 */
 	public static void doBuild( int[][][] build, String[] palette, World world, int dimension, int x, int y, int z, StuffList[] loot) {
 		
@@ -81,14 +86,18 @@ public class SpawnerBlocksUtils {
 							Utils.add_chest(world, dimension, x+i, y+j, z+k, loot);
 							break;
 						case -3:
-							world.setblock(dimension, i, j, k, Blocks.furnace.blockID);
-							Entity eb = world.createEntityByName("DangerZone:EntityFurnace", dimension, (double)(i)+0.5f, (double)(j)+0.05f, (double)(k)+0.5f);
-							eb.init();
-							eb.doFromSpawner();
+							world.setblock(dimension, x+i, y+j, z+k, Blocks.furnace.blockID);
+							Entity eb = world.createEntityByName("DangerZone:EntityFurnace", dimension, (double)(x+i)+0.5f, (double)(y+j)+0.05f, (double)(z+k)+0.5f);
 							eb.setBID(Blocks.furnace.blockID);
 							eb.setIID(Blocks.furnaceOn.blockID);
+							eb.init();
+							eb.doFromSpawner();
 							//System.out.println(eb);
 							world.spawnEntityInWorld(eb);
+							break;
+						case -4:
+							//System.out.println(Blocks.stone.blockID);
+							world.setblock(dimension, x+i, y+j, z+k, world.rand.nextInt(3) == 0? Blocks.findByName(palette[4]): 0);
 							break;
 						default:
 							world.setblock(dimension, x+i, y+j, z+k, Blocks.findByName(palette[build[i][j][k]-1]));

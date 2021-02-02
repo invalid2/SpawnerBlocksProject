@@ -167,6 +167,8 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
+<li>$:/layout</li>
+
 <li>$:/NewNote</li>
 
 <li>$:/plugins/tesseract/tekan</li>
@@ -189,11 +191,17 @@ Error message and password prompt
 
 <li>$:/state/plugin-info--896887961-$:/core</li>
 
+<li>$:/state/plugin-info--896887961-$:/core---553713294</li>
+
 <li>$:/state/plugin-info--896887961-$:/plugins/tesseract/tekan</li>
+
+<li>$:/state/plugin-info--896887961-$:/plugins/tesseract/tekan---1529199568</li>
 
 <li>$:/state/plugin-info-334910430-$:/core</li>
 
 <li>$:/state/rearrlist</li>
+
+<li>$:/state/sidebar</li>
 
 <li>$:/state/tab--1418380610</li>
 
@@ -205,6 +213,8 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
+<li>$:/state/tabs/controlpanel/toolbars-1345989671</li>
+
 <li>$:/state/tag-manager/Release 1.0</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
@@ -213,11 +223,25 @@ Error message and password prompt
 
 <li>$:/Tekan/CurrentBoard</li>
 
-<li>$:/Tekan/Main</li>
+<li>$:/Tekan/NavboardButtons</li>
+
+<li>$:/theme</li>
 
 <li>$:/themes/tiddlywiki/snowwhite</li>
 
 <li>$:/themes/tiddlywiki/vanilla</li>
+
+<li>$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth</li>
+
+<li>$:/themes/tiddlywiki/vanilla/metrics/storyleft</li>
+
+<li>$:/themes/tiddlywiki/vanilla/metrics/storyright</li>
+
+<li>$:/themes/tiddlywiki/vanilla/metrics/storytop</li>
+
+<li>$:/themes/tiddlywiki/vanilla/metrics/storywidth</li>
+
+<li>$:/themes/tiddlywiki/vanilla/options/sidebarlayout</li>
 
 <li>Abandoned Shack</li>
 
@@ -10242,7 +10266,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20210131130237726" modified="20210131133847521" tags="TwelloMode" title="$:/core/ui/PageTemplate/alerts">
+<div created="20210131130237726" modified="20210201224512736" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/alerts">
 <pre>&lt;div class=&quot;tc-alerts&quot;&gt;
 
 &lt;$list filter=&quot;[all[shadows+tiddlers]tag[$:/tags/Alert]!has[draft.of]]&quot; template=&quot;$:/core/ui/AlertTemplate&quot; storyview=&quot;pop&quot;/&gt;
@@ -10250,7 +10274,7 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div created="20210131130237726" modified="20210131133847521" tags="TwelloMode" title="$:/core/ui/PageTemplate/drafts">
+<div created="20210131130237726" modified="20210201224512736" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/drafts">
 <pre>\whitespace trim
 &lt;$reveal state=&quot;$:/status/IsReadOnly&quot; type=&quot;nomatch&quot; text=&quot;yes&quot; tag=&quot;div&quot; class=&quot;tc-drafts-list&quot;&gt;
 &lt;$list filter=&quot;[has[draft.of]!sort[modified]] -[list[$:/StoryList]]&quot;&gt;
@@ -10261,7 +10285,7 @@ Error message and password prompt
 &lt;/$reveal&gt;
 </pre>
 </div>
-<div created="20210131130237726" modified="20210131133847522" tags="TwelloMode" title="$:/core/ui/PageTemplate/pluginreloadwarning">
+<div created="20210131130237726" modified="20210201224512736" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/pluginreloadwarning">
 <pre>\define lingo-base() $:/language/
 
 &lt;$list filter=&quot;[{$:/status/RequireReloadDueToPluginChange}match[yes]]&quot;&gt;
@@ -10283,7 +10307,7 @@ Error message and password prompt
 &lt;/$list&gt;
 </pre>
 </div>
-<div created="20210131130237726" modified="20210131133847520" tags="TwelloMode" title="$:/core/ui/PageTemplate/sidebar">
+<div created="20210131130237726" modified="20210201224512736" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/sidebar">
 <pre>\whitespace trim
 \define config-title()
 $:/config/SideBarSegments/Visibility/$(listItem)$
@@ -10312,7 +10336,7 @@ $:/config/SideBarSegments/Visibility/$(listItem)$
 &lt;/$scrollable&gt;
 </pre>
 </div>
-<div created="20210131130237726" modified="20210131133847521" tags="TwelloMode" title="$:/core/ui/PageTemplate/story">
+<div created="20210131130237726" modified="20210201224512736" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/story">
 <pre>\whitespace trim
 &lt;section class=&quot;tc-story-river&quot;&gt;
 
@@ -10341,7 +10365,7 @@ $:/config/SideBarSegments/Visibility/$(listItem)$
 &lt;/section&gt;
 </pre>
 </div>
-<div created="20210131130237726" modified="20210131133847519" tags="TwelloMode" title="$:/core/ui/PageTemplate/topleftbar">
+<div created="20210131130237726" modified="20210201224512736" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/topleftbar">
 <pre>&lt;span class=&quot;tc-topbar tc-topbar-left&quot;&gt;
 
 &lt;$list filter=&quot;[all[shadows+tiddlers]tag[$:/tags/TopLeftBar]!has[draft.of]]&quot; variable=&quot;listItem&quot; storyview=&quot;pop&quot;&gt;
@@ -10353,7 +10377,7 @@ $:/config/SideBarSegments/Visibility/$(listItem)$
 &lt;/span&gt;
 </pre>
 </div>
-<div created="20210131130237726" modified="20210131133847520" tags="TwelloMode" title="$:/core/ui/PageTemplate/toprightbar">
+<div created="20210131130237726" modified="20210201224512736" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/toprightbar">
 <pre>&lt;span class=&quot;tc-topbar tc-topbar-right&quot;&gt;
 
 &lt;$list filter=&quot;[all[shadows+tiddlers]tag[$:/tags/TopRightBar]!has[draft.of]]&quot; variable=&quot;listItem&quot; storyview=&quot;pop&quot;&gt;
@@ -10372,6 +10396,9 @@ $:/config/SideBarSegments/Visibility/$(listItem)$
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
+</div>
+<div created="20210201224810216" modified="20210201224812509" title="$:/layout">
+<pre>$:/core/ui/PageTemplate</pre>
 </div>
 <div created="20210131131059756" modified="20210131135801718" title="$:/NewNote">
 <pre></pre>
@@ -10485,17 +10512,23 @@ $:/config/SideBarSegments/Visibility/$(listItem)$
 <div created="20210131131202212" modified="20210131135851701" title="$:/state/checklistitem">
 <pre></pre>
 </div>
-<div created="20210131131107938" modified="20210131135811764" title="$:/state/editcard">
-<pre>Ghost Família</pre>
+<div created="20210131131107938" modified="20210201223430925" title="$:/state/editcard">
+<pre>Add Dracorat Mob</pre>
 </div>
 <div created="20210131130249252" modified="20210131133714515" title="$:/state/newlisttemp">
 <pre></pre>
 </div>
-<div created="20210131125916242" modified="20210131130021822" title="$:/state/plugin-info--896887961-$:/core">
+<div created="20210131125916242" modified="20210201225132537" title="$:/state/plugin-info--896887961-$:/core">
+<pre>yes</pre>
+</div>
+<div created="20210201223755196" modified="20210201223755196" title="$:/state/plugin-info--896887961-$:/core---553713294">
+<pre>contents</pre>
+</div>
+<div created="20210131130023907" modified="20210201224751053" title="$:/state/plugin-info--896887961-$:/plugins/tesseract/tekan">
 <pre>no</pre>
 </div>
-<div created="20210131130023907" modified="20210131130024474" title="$:/state/plugin-info--896887961-$:/plugins/tesseract/tekan">
-<pre>no</pre>
+<div created="20210201223547060" modified="20210201223547060" title="$:/state/plugin-info--896887961-$:/plugins/tesseract/tekan---1529199568">
+<pre>contents</pre>
 </div>
 <div created="20210131125922346" modified="20210131125922346" title="$:/state/plugin-info-334910430-$:/core">
 <pre>no</pre>
@@ -10503,20 +10536,26 @@ $:/config/SideBarSegments/Visibility/$(listItem)$
 <div created="20210131130938618" modified="20210131133659423" title="$:/state/rearrlist">
 <pre></pre>
 </div>
+<div created="20210201224513528" modified="20210201224519585" title="$:/state/sidebar">
+<pre>yes</pre>
+</div>
 <div created="20210131125832074" modified="20210131125851030" title="$:/state/tab--1418380610">
 <pre>$:/core/ui/ControlPanel/Plugins/Add/Plugins</pre>
 </div>
-<div created="20210131130037045" modified="20210131130042238" title="$:/state/tab--1963855381">
-<pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
+<div created="20210131130037045" modified="20210201225128605" title="$:/state/tab--1963855381">
+<pre>$:/core/ui/ControlPanel/StoryView</pre>
 </div>
 <div created="20210131125824189" modified="20210131125915694" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
-<div created="20210131125821593" modified="20210131130050865" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Settings</pre>
+<div created="20210131125821593" modified="20210201225130825" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
-<div created="20210131125812469" modified="20210131133152107" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20210131125812469" modified="20210201223459404" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Tools</pre>
+</div>
+<div created="20210201223520385" modified="20210201223533501" title="$:/state/tabs/controlpanel/toolbars-1345989671">
+<pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
 <div created="20210131133122847" modified="20210131133125067" title="$:/state/tag-manager/Release 1.0">
 <pre>closed</pre>
@@ -10524,153 +10563,101 @@ $:/config/SideBarSegments/Visibility/$(listItem)$
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210131125819894" list="[[Add sandwitch mob]] [[Create variants]] [[Project/In Progress]] Project/Planned [[Project/To do]]" modified="20210131133750212" title="$:/StoryList">
+<div created="20210201223500913" list="$:/ControlPanel GettingStarted" modified="20210201224747584" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20210131130309423" modified="20210131133729856" title="$:/Tekan/CurrentBoard">
 <pre>Project</pre>
 </div>
-<div created="20170918191921058" creator="Riz" modified="20210131133847523" modifier="Riz" tags="$:/tags/PageTemplate" title="$:/Tekan/Main">
-<pre>\define currentListTag()
-[[$(currentList)$]]
+<div created="20170910185559552" creator="Riz" modified="20210201224455609" modifier="Riz" tags="$:/Tekan" title="$:/Tekan/NavboardButtons">
+<pre>\define AddNewBoard()
+&lt;$action-createtiddler $basetitle={{$:/state/boardNewTitle}} tags=&quot;$:/tags/Tekanboard&quot;/&gt;
+&lt;$action-setfield $tiddler=&quot;$:/Tekan/CurrentBoard&quot; $value={{$:/state/boardNewTitle}}/&gt;
+&lt;$action-setfield $tiddler=&quot;$:/state/boardNewTitle&quot; text=&quot;&quot;/&gt;
 \end
 
-\define drop-actions()
-&lt;$action-listops $tiddler=&lt;&lt;actionTiddler&gt;&gt; $tags=&quot;-[tag&lt;currentBoard&gt;]&quot;/&gt;
-&lt;$action-listops $tiddler=&lt;&lt;actionTiddler&gt;&gt; $tags=&lt;&lt;currentListTag&gt;&gt;/&gt;
-&lt;$list filter=&quot;[tag&lt;currentBoard&gt;]&quot;&gt;
-&lt;$action-listops $subfilter=&quot;-[&lt;actionTiddler&gt;]&quot;/&gt;
-&lt;/$list&gt;
-&lt;$action-listops $tiddler=&lt;&lt;currentList&gt;&gt; $subfilter=&quot;+[insertbefore:currentTiddler&lt;actionTiddler&gt;]&quot;/&gt;
-&lt;$action-sendmessage $message=&quot;tm-auto-save-wiki&quot;/&gt;
-\end
-
-
-
-
-\define currentBoardTags()
-[[$(currentBoard)$]]
-\end
-
-\define droplist()
-&lt;$action-listops $tiddler=&lt;&lt;currentBoard&gt;&gt; $subfilter=&quot;+[insertbefore:currentTiddler&lt;actionTiddler&gt;]&quot;/&gt;
-&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt; $field=&quot;tags&quot; $value=&lt;&lt;currentBoardTags&gt;&gt;/&gt;
-&lt;$action-sendmessage $message=&quot;tm-auto-save-wiki&quot;/&gt;
-\end
-
-\define cardeditops()
-&lt;$action-setfield $tiddler=&quot;$:/state/editcard&quot; text=&lt;&lt;currentTiddler&gt;&gt;/&gt;
-&lt;$action-sendmessage $message=&quot;tm-modal&quot; $param=&quot;$:/Tikan/EditCardModal&quot; currentList=&lt;&lt;currentList&gt;&gt; currentCard=&lt;&lt;currentTiddler&gt;&gt;/&gt;
-\end
-
-\define popupstate()
-$:/state/listops/$(currentList)$
-\end
-
-\define deletelist()
-&lt;$list filter=&quot;[tag&lt;currentList&gt;]&quot;&gt;
-&lt;$action-deletetiddler $tiddler=&lt;&lt;currentTiddler&gt;&gt;/&gt;
-&lt;/$list&gt;
+\define deleteboard()
+&lt;$set name=&quot;currentBoard&quot; value={{$:/Tekan/CurrentBoard}}&gt;
+&lt;$list filter=&quot;[tag&lt;currentBoard&gt;]&quot; variable=&quot;currentList&quot;&gt;
 &lt;$action-deletetiddler $tiddler=&lt;&lt;currentList&gt;&gt;/&gt;
-&lt;$action-listops $tiddler=&lt;&lt;currentBoard&gt;&gt; $subfilter=&quot;+[remove&lt;currentList&gt;]&quot;/&gt;
-&lt;$action-sendmessage $message=&quot;tm-auto-save-wiki&quot;/&gt;
-\end
-
-\define archivelist()
-&lt;$list filter=&quot;[tag&lt;currentList&gt;]&quot;&gt;
-&lt;$action-listops $tags=&quot;archive&quot;/&gt;
+&lt;$list filter=&quot;[tag&lt;currentList&gt;]&quot; variable=&quot;currentCard&quot;&gt;
+&lt;$action-deletetiddler $tiddler=&lt;&lt;currentCard&gt;&gt;/&gt;
+&lt;$list filter=&quot;[tag&lt;currentCard&gt;]&quot; variable=&quot;currentChecklistitem&quot;&gt;
+&lt;$action-deletetiddler $tiddler=&lt;&lt;currentChecklistitem&gt;&gt;/&gt;
 &lt;/$list&gt;
-&lt;$action-setfield $tiddler=&lt;&lt;currentList&gt;&gt; list=&quot;&quot;/&gt;
+&lt;/$list&gt;
+&lt;/$list&gt;
+&lt;$action-deletetiddler $tiddler=&lt;&lt;currentBoard&gt;&gt;/&gt;
+&lt;/$set&gt;
+&lt;$action-setfield $tiddler=&quot;$:/Tekan/CurrentBoard&quot; text=&quot;&quot;/&gt;
+&lt;$action-deletetiddler $tiddler=&quot;$:/state/deleteboardpopup&quot;/&gt;
 \end
-
-
-&lt;style&gt;
-.icon-edit::before {
-content: &quot;&amp;#x270e;&quot;;
-}
-.icon-overflow-menu-horizontal::before {
-	content: &quot;&amp;#xb7;&amp;#xb7;&amp;#xb7;&quot;;
-}
-&lt;/style&gt;
-
-&lt;div class=&quot;ui&quot;&gt;
-	{{$:/Tekan/Navbar}}
-	&lt;div class=&quot;lists&quot;&gt;
-    &lt;$set name=&quot;currentBoard&quot; value={{$:/Tekan/CurrentBoard}}&gt;
-    &lt;$list filter=&quot;[tag&lt;currentBoard&gt;!has[draft.of]]&quot; variable=&quot;currentList&quot;&gt;
-		&lt;div class=&quot;list&quot;&gt;
-        &lt;header&gt;
-							&lt;$draggable filter=&quot;[tag&lt;currentList&gt;!has[draft.of]]&quot;&gt; &lt;$transclude tiddler=&lt;&lt;currentList&gt;&gt; field=&quot;caption&quot;&gt;&lt;$view tiddler=&lt;&lt;currentList&gt;&gt; field=&quot;title&quot;/&gt; &lt;/$transclude&gt;
-                  &lt;$button tag=&quot;span&quot; class=&quot;icon-sm icon-overflow-menu-horizontal listitem&quot; popup=&lt;&lt;popupstate&gt;&gt;&gt;&lt;/$button&gt;
-                  &lt;$reveal type=&quot;popup&quot; position=&quot;below&quot; state=&lt;&lt;popupstate&gt;&gt;&gt;
-                            &lt;div class=&quot;pop-over&quot; style=&quot;right: auto;top: auto;&quot;&gt;
-                            &lt;div class=&quot;pop-over-header&quot;&gt;&lt;span class=&quot;pop-over-header-title&quot;&gt;List Actions&lt;/span&gt;
-                            &lt;/div&gt;
-                            &lt;$button tag=&quot;div&quot; class=&quot;listopsbutton&quot; actions=&lt;&lt;deletelist&gt;&gt;&gt;Delete List&lt;/$button&gt;
-                            &lt;$button tag=&quot;div&quot; class=&quot;listopsbutton&quot; actions=&lt;&lt;archivelist&gt;&gt;&gt;Archive List&lt;/$button&gt;
-                            &lt;/div&gt;
-                  &lt;/$reveal&gt;
-              &lt;/$draggable&gt;
-        &lt;/header&gt;
-  			&lt;ul&gt;
-          &lt;$list filter=&quot;[tag&lt;currentList&gt;!tag[archive]sortby{!!list}!has[draft.of]]&quot;&gt;
-  						&lt;div style=&quot;position: relative;&quot;&gt;
-                  &lt;$droppable actions=&lt;&lt;drop-actions&gt;&gt;&gt;
-                        &lt;div class=&quot;tc-droppable-placeholder&quot;&gt;
-                        &amp;nbsp;
-                        &lt;/div&gt;
-                        &lt;div&gt;
-                        		&lt;$draggable tiddler=&lt;&lt;currentTiddler&gt;&gt; tag=&quot;li&quot;&gt;&lt;$view field=&quot;title&quot;/&gt;
-                              &lt;$button tag=&quot;span&quot; class=&quot;icon-sm icon-edit list-card-operation listitem&quot; actions=&lt;&lt;cardeditops&gt;&gt;&gt;&lt;/$button&gt;                            
-                              &lt;/$draggable&gt;
-                       &lt;/div&gt;
-                  &lt;/$droppable&gt;
-              &lt;/div&gt;
-          &lt;/$list&gt;
-  			&lt;/ul&gt;
-       		&lt;$tiddler tiddler=&quot;&quot;&gt;
-            &lt;div class=&quot;footer&quot;&gt;
-						&lt;$droppable actions=&lt;&lt;drop-actions&gt;&gt;  tag=&quot;div&quot;&gt;
-								&lt;div class=&quot;tc-droppable-placeholder&quot;&gt;
-								&amp;nbsp;
-								&lt;/div&gt;
-								&lt;footer&gt;{{||$:/Tekan/AddCard}}&lt;/footer&gt;
-						&lt;/$droppable&gt;
-            &lt;/div&gt;
-            &lt;/$tiddler&gt;
-			  
+&lt;$set name=&quot;currentBoard&quot; value={{$:/Tekan/CurrentBoard}}&gt;
+&lt;$list filter=&quot;[tag[$:/Tekan/Button]]&quot;&gt;&lt;$transclude/&gt;&lt;/$list&gt;
+&lt;/$set&gt;
+&lt;$button tooltip=&quot;Rearrange lists&quot; set=&quot;$:/state/rearrlist&quot; setTo=&quot;show&quot;&gt;A&lt;/$button&gt;
+&lt;$button tooltip=&quot;Delete board&quot; popup=&quot;$:/state/deleteboardpopup&quot; style=&quot;fill:#fff;&quot;&gt;{{$:/core/images/delete-button}}&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; class=&quot;tc-popup-keep&quot; state=&quot;$:/state/deleteboardpopup&quot;&gt;
+&lt;div class=&quot;md-modal md-effect-1 md-show&quot;&gt;
+&lt;div class=&quot;md-content&quot;&gt;
+				&lt;h3&gt;delete Board&lt;$button tag=&quot;span&quot; style=&quot;right:0;position: absolute;padding: 0 3%;fill:#fff;cursor:pointer&quot;&gt;{{$:/core/images/close-button}}&lt;$action-deletetiddler $tiddler=&quot;$:/state/deleteboardpopup&quot;/&gt;&lt;/$button&gt;&lt;/h3&gt;
+				&lt;div&gt;
+					&lt;p&gt;This will delete the board, along with all its lists, its cards, items in card checkboxes&lt;/p&gt;
+					&lt;p&gt;Are you sure?&lt;/p&gt;
+                    &lt;div class=&quot;mdbuttons&quot;&gt;
+					&lt;$button actions=&lt;&lt;deleteboard&gt;&gt; class=&quot;md-close&quot;&gt;Delete&lt;/$button&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
 		&lt;/div&gt;
-    &lt;/$list&gt;
-    
-   		{{||$:/Tekan/AddList}}
-   		&lt;$reveal state=&quot;$:/state/rearrlist&quot; type=&quot;match&quot; text=&quot;show&quot;&gt;
-   		&lt;div class=&quot;list&quot;&gt;
-   		 &lt;header&gt;Lists of &lt;&lt;currentBoard&gt;&gt;&lt;/header&gt;
-	 		&lt;ul&gt;
-	 		
-			            &lt;$list filter=&quot;[tag&lt;currentBoard&gt;sortby{!!list}]&quot;&gt;
-					&lt;div style=&quot;position: relative;&quot;&gt;
-			                &lt;$droppable actions=&lt;&lt;droplist&gt;&gt;&gt;
-			                        &lt;div class=&quot;tc-droppable-placeholder&quot;&gt;
-			                        &amp;nbsp;
-			                        &lt;/div&gt;
-			                      &lt;div&gt;
-			                      		&lt;$draggable tiddler=&lt;&lt;currentTiddler&gt;&gt; tag=&quot;li&quot;&gt; &lt;$transclude tiddler=&lt;&lt;currentList&gt;&gt; field=&quot;caption&quot;&gt;&lt;$view tiddler=&lt;&lt;currentList&gt;&gt; field=&quot;title&quot;/&gt; &lt;/$transclude&gt;
-			                            	&lt;/$draggable&gt;
-			                      &lt;/div&gt;
-			                &lt;/$droppable&gt;
-			                &lt;/div&gt;
-			            &lt;/$list&gt;
-			            
-	            	
-			&lt;/ul&gt;
-        
-   		 	&lt;footer&gt;&lt;$button class=&quot;smallgreenbutton&quot; set=&quot;$:/state/rearrlist&quot; setTo=&quot;&quot;&gt;Done&lt;/$button&gt;&lt;/footer&gt;
-   		&lt;/div&gt;
-   		&lt;/$reveal&gt;
-  	&lt;/$set&gt;
+        &lt;/$reveal&gt;
+&lt;$button tooltip=&quot;Add new board&quot; popup=&quot;$:/state/newboardstate&quot;&gt;
++&lt;/$button&gt;
+&lt;$reveal state=&quot;$:/state/newboardstate&quot; type=&quot;popup&quot; class=&quot;tc-popup-keep&quot; position=&quot;below&quot; text=&quot;showthepopup&quot;&gt;
+&lt;div class=&quot;pop-over&quot;&gt;
+	&lt;div&gt;
+		&lt;div class=&quot;pop-over-header&quot;&gt;
+			&lt;span class=&quot;pop-over-header-title&quot;&gt;Create Board&lt;/span&gt;
+			&lt;a href=&quot;#&quot; class=&quot;pop-over-header-close-btn icon-sm icon-close&quot;&gt;&lt;/a&gt;
+		&lt;/div&gt;
+
+
+		&lt;div class=&quot;pop-over-content&quot; style=&quot;max-height: 323px;&quot;&gt;
+		&lt;div&gt;
+			&lt;label&gt;Title&lt;/label&gt;
+                        &lt;$edit-text class=&quot;list-name-input&quot; tiddler=&quot;$:/state/boardNewTitle&quot;  placeholder=&quot;What are you organizing?&quot; default=&quot;New board&quot; tag=&quot;input&quot;/&gt;
+
+			&lt;div&gt;&lt;$button style=&quot;background: -webkit-linear-gradient(top,#5AAC44 0,#519839 100%);background: linear-gradient(to bottom,#5AAC44 0,#519839 100%);&quot; set=&quot;$:/state/newboardstate&quot; setTo=&quot;&quot; actions=&lt;&lt;AddNewBoard&gt;&gt;&gt;Create New Board&lt;/$button&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+&lt;/$reveal&gt;
+&lt;$button tooltip=&quot;Switch back to TW5&quot;&gt;@@fill:white;{{$:/core/images/opacity}}@@
+&lt;$list filter=&quot;[all[shadows+tiddlers]tag[TwelloMode]!has[draft.of]]&quot;&gt;
+&lt;$action-setfield tags=&quot;$:/tags/PageTemplate&quot;/&gt;
+&lt;/$list&gt;
+&lt;$action-deletetiddler $tiddler=&quot;$:/Tekan/Main&quot;/&gt;
+&lt;$action-deletetiddler $tiddler=&quot;$:/Tekan/Substyles&quot;/&gt;
+&lt;/$button&gt;
+
+&lt;$button tooltip={{$:/language/Buttons/SaveWiki/Hint}} aria-label={{$:/language/Buttons/SaveWiki/Caption}} class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;
+&lt;$wikify name=&quot;site-title&quot; text={{$:/config/SaveWikiButton/Filename}}&gt;
+&lt;$action-sendmessage $message=&quot;tm-save-wiki&quot; $param={{$:/config/SaveWikiButton/Template}} filename=&lt;&lt;site-title&gt;&gt;/&gt;
+&lt;/$wikify&gt;
+&lt;span class=&quot;tc-dirty-indicator&quot;&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;
+{{$:/core/images/save-button}}
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
+&lt;span class=&quot;tc-btn-text&quot;&gt;&lt;$text text={{$:/language/Buttons/SaveWiki/Caption}}/&gt;&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/span&gt;
+&lt;/$button&gt;
+</pre>
+</div>
+<div created="20210201224758017" modified="20210201224801941" title="$:/theme">
+<pre>$:/themes/tiddlywiki/vanilla</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.23">
 <pre>{
@@ -10781,6 +10768,24 @@ content: &quot;&amp;#x270e;&quot;;
     }
 }</pre>
 </div>
+<div created="20210201224926433" modified="20210201224940762" title="$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth">
+<pre>300px</pre>
+</div>
+<div created="20210201225109258" modified="20210201225116095" title="$:/themes/tiddlywiki/vanilla/metrics/storyleft">
+<pre>0px</pre>
+</div>
+<div created="20210201225012860" modified="20210201225101753" title="$:/themes/tiddlywiki/vanilla/metrics/storyright">
+<pre>770px</pre>
+</div>
+<div created="20210201225015949" modified="20210201225031720" title="$:/themes/tiddlywiki/vanilla/metrics/storytop">
+<pre>0px</pre>
+</div>
+<div created="20210201225047403" modified="20210201225059662" title="$:/themes/tiddlywiki/vanilla/metrics/storywidth">
+<pre>770px</pre>
+</div>
+<div created="20210201224820287" modified="20210201224820287" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
+<pre>fluid-fixed</pre>
+</div>
 <div created="20210131134424528" modified="20210131134424528" tags="[[Decorative abandoned buildings]]" title="Abandoned Shack">
 <pre></pre>
 </div>
@@ -10817,7 +10822,7 @@ content: &quot;&amp;#x270e;&quot;;
 <div created="20210131132022935" modified="20210131133440573" tags="Project/Planned" title="Add Guardian Família">
 <pre></pre>
 </div>
-<div created="20210131131459222" modified="20210131133544248" tags="[[Project/In Progress]]" title="Add Guardian mob">
+<div created="20210131131459222" modified="20210201222928090" tags="Project/Done" title="Add Guardian mob">
 <pre></pre>
 </div>
 <div created="20210131131532854" modified="20210131131532854" title="Add Guardian Mob">
@@ -10841,10 +10846,10 @@ content: &quot;&amp;#x270e;&quot;;
 <div created="20210131132732787" modified="20210131132732787" tags="[[Add Corrupt Guardian Família]]" title="Add The Haunt/Thanatos">
 <pre></pre>
 </div>
-<div created="20210131134005936" modified="20210131134008070" tags="Project/Planned" title="Ancient Ruins">
+<div created="20210131134005936" modified="20210201223031010" tags="[[Project/To do]]" title="Ancient Ruins">
 <pre></pre>
 </div>
-<div created="20210131132803404" modified="20210131132803404" tags="[[Add Dracorat Mob]]" title="Assign correct drops">
+<div created="20210131132803404" modified="20210201223435428" tags="[[Add Dracorat Mob]] done" title="Assign correct drops">
 <pre></pre>
 </div>
 <div created="20210131133924684" modified="20210131133932082" tags="Project/Planned" title="Corrupted Dimension">
@@ -10868,7 +10873,7 @@ content: &quot;&amp;#x270e;&quot;;
 <div created="20210131131238215" modified="20210131131913019" tags="[[Add Impostor Mob]] done" title="Do AI">
 <pre></pre>
 </div>
-<div created="20210131132753787" modified="20210131132753787" tags="[[Add Dracorat Mob]]" title="Do Mob">
+<div created="20210131132753787" modified="20210201223434948" tags="[[Add Dracorat Mob]] done" title="Do Mob">
 <pre></pre>
 </div>
 <div created="20210131131746267" modified="20210131132120127" tags="[[Add Impostor Mob]]" title="EndItem">
@@ -10931,19 +10936,19 @@ content: &quot;&amp;#x270e;&quot;;
 <div caption="Release 1.0" created="20210131130256759" list="Project/Planned [[Project/To do]] [[Project/In Progress]] Project/Done [[Project/Release 1]] [[Project/Release 1.0]]" modified="20210131133714514" tags="$:/tags/Tekanboard" title="Project">
 <pre></pre>
 </div>
-<div caption="Done" created="20210131131056288" list="[[Added Impostor]] [[Add Impostor]] [[Add BUTTERfly]] [[Add Dracorat]] [[Add Guardian]] [[Spider Nest Dungeons]] [[Decorative abandoned buildings]] [[Add BUTTERfly Mob]] [[Add Dracorat Mob]] [[Add Impostor Mob]] [[Waymark and Wayfinder]] [[Ly Infuser]] [[Latten Furnace]] [[Separate BattleTowers from the rest of the mod]]" modified="20210131164944055" tags="Project" title="Project/Done">
+<div caption="Done" created="20210131131056288" list="[[Added Impostor]] [[Add Impostor]] [[Add BUTTERfly]] [[Add Dracorat]] [[Add Guardian]] [[Add Guardian mob]] [[Decorative abandoned buildings]] [[Add BUTTERfly Mob]] [[Add Dracorat Mob]] [[Add Impostor Mob]] [[Waymark and Wayfinder]] [[Ly Infuser]] [[Latten Furnace]] [[Separate BattleTowers from the rest of the mod]]" modified="20210201223031010" tags="Project" title="Project/Done">
 <pre></pre>
 </div>
-<div caption="In Progress" created="20210131131050874" list="[[Add Guardian mob]]" modified="20210131164944054" tags="Project" title="Project/In Progress">
+<div caption="In Progress" created="20210131131050874" list="[[Spider Nest Dungeons]]" modified="20210201223031010" tags="Project" title="Project/In Progress">
 <pre></pre>
 </div>
-<div caption="Planned" created="20210131131025611" list="[[Add Guardian Família]] [[Add Corrupt Guardian Família]] [[Ghost Família]] [[Custom tool crafting system]] [[Sky Currents Dimension]] [[Deep Ocean Dimension]] [[The Abyss Dimension]] [[Corrupted Dimension]] [[Ly based enchantments]] [[Ly based magic]] [[KugeBlitz Sword]] [[Ancient Ruins]] [[Melting Spawner]] LoreBooks [[Unnamed Flying Centipede]]" modified="20210131164944054" tags="Project" title="Project/Planned">
+<div caption="Planned" created="20210131131025611" list="[[Add Guardian Família]] [[Add Corrupt Guardian Família]] [[Ghost Família]] [[Custom tool crafting system]] [[Sky Currents Dimension]] [[Deep Ocean Dimension]] [[The Abyss Dimension]] [[Corrupted Dimension]] [[Ly based enchantments]] [[Ly based magic]] [[KugeBlitz Sword]] [[Melting Spawner]] LoreBooks [[Unnamed Flying Centipede]]" modified="20210201223031010" tags="Project" title="Project/Planned">
 <pre></pre>
 </div>
-<div caption="Release 1.0" created="20210131133714513" list="" modified="20210131164944055" tags="Project" title="Project/Release 1.0">
+<div caption="Release 1.0" created="20210131133714513" list="" modified="20210201223031010" tags="Project" title="Project/Release 1.0">
 <pre></pre>
 </div>
-<div caption="To do" created="20210131131031094" list="[[Add sandwitch mob]] [[Vampire Dungeons]] [[Lychemist Handbook]]" modified="20210131164944054" tags="Project" title="Project/To do">
+<div caption="To do" created="20210131131031094" list="[[Add sandwitch mob]] [[Vampire Dungeons]] [[Ancient Ruins]] [[Lychemist Handbook]]" modified="20210201223031011" tags="Project" title="Project/To do">
 <pre></pre>
 </div>
 <div created="20210131134507021" modified="20210131164944054" tags="Project/Done" title="Separate BattleTowers from the rest of the mod">
@@ -10958,7 +10963,7 @@ content: &quot;&amp;#x270e;&quot;;
 <div created="20210131134436104" modified="20210131134436104" tags="[[Decorative abandoned buildings]]" title="Small tower">
 <pre></pre>
 </div>
-<div created="20210131134113128" modified="20210131134113128" tags="Project/Done" title="Spider Nest Dungeons">
+<div created="20210131134113128" modified="20210201222925248" tags="[[Project/In Progress]]" title="Spider Nest Dungeons">
 <pre></pre>
 </div>
 <div created="20210131132852960" modified="20210131133440573" tags="Project/Planned" title="The Abyss Dimension">

@@ -14,9 +14,7 @@ import dangerzone.Player;
 import dangerzone.StitchedTexture;
 import dangerzone.World;
 import dangerzone.blocks.Block;
-import dangerzone.blocks.Blocks;
 import dangerzone.entities.Entity;
-import dangerzone.entities.EntityFurnace;
 
 public class LattenFurnace extends Block {
 	Texture ttop = null;

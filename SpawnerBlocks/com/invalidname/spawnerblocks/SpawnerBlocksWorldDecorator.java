@@ -27,11 +27,11 @@ public class SpawnerBlocksWorldDecorator extends WorldDecorator{
 				zoff = world.rand.nextInt(16);
 				yoff = world.rand.nextInt(40) + 5;
 				
-				putBuildOnSolidWTrippleFiller(SpawnerBlocksBuilds.spider_nest, world, dimension, x+xoff, yoff, z+zoff, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, world.rand.nextInt(2), DZWorldDecorator.things);
+				SpawnerBlocksUtils.doBuild(SpawnerBlocksBuilds.spider_nest, world.rand.nextInt(2) == 0 ? SpawnerBlocksBuilds.palette_spidernestsmall_muffin : SpawnerBlocksBuilds.palette_spidernestsmall_skelly, world, dimension, x+xoff, yoff, z+zoff, DZWorldDecorator.things);
 			}
 		}
 		
-		if(world.rand.nextInt(200) == 0) {
+		if(world.rand.nextInt(80) == 0) {
 			putBuildOnSurface( SpawnerBlocksBuilds.abandoned_shack, SpawnerBlocksBuilds.palette_abandonedshack, world, dimension, chunkx, chunkz, LootTables.surface_loot);
 			//return;
 		}
@@ -59,7 +59,15 @@ public class SpawnerBlocksWorldDecorator extends WorldDecorator{
 			}
 			
 			if(world.rand.nextInt(4) == 0) {
-				doDracoratNest(SpawnerBlocksBuilds.dragonratnest, world, dimension, chunkx, chunkz, false, 0, DZWorldDecorator.things);
+				int xoff, zoff;
+				int x = chunkx << 4;
+				int z = chunkz << 4;
+				int yoff = 200;
+				xoff = world.rand.nextInt(16) - 8;
+				zoff = world.rand.nextInt(16) - 8;
+				
+				if(Blocks.isSolid(world.getblock(dimension, x+xoff+6, yoff-1, z+zoff+6)) && Blocks.isSolid(world.getblock(dimension, x+xoff, yoff-1, z+zoff)))
+					SpawnerBlocksUtils.doBuild(SpawnerBlocksBuilds.dracoratnest, SpawnerBlocksBuilds.palette_dracoratnest, world, dimension, x+xoff, yoff, z+zoff, null);
 				//return;
 			}
 			

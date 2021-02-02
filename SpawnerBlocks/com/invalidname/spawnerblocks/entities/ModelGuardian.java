@@ -43,23 +43,26 @@ public class ModelGuardian extends ModelBase {
 	
 	public void render(Entity entity, float lifetimeticker, float velocity, float headupdown, float headleftright, float headtilt, float deathfactor) {
 		super.render(entity, lifetimeticker, velocity, headupdown, headleftright, headtilt, deathfactor);
+		//Guardian g = (Guardian) entity;
 		
-		if(headleftright < -90) {
-			headleftright = -90;
-		}
+		//float cdir = (float) Math.toRadians(g.rotation_yaw);
+    	//float tdir = 0;
+    	//if(g.target != null)
+    		//tdir = (float) Math.atan2(g.target.targetx - g.posx, g.target.targetz - g.posz);
+    	
+    	//if(tdir < 0)
+    		//tdir += 2*Math.PI;
+    	//float ddiff = tdir - cdir;
+		System.out.println(entity.rotation_yaw_motion);
 		
-		if(headleftright > 90) {
-			headleftright = 90;
-		}
-		//System.out.println(headleftright);
 		//Eye.offsetX = Math.round((2*headleftright/90))-3;
-		Eye.offsetX = Math.round((2*headleftright/75)-3);
-		if(Eye.offsetX < -2) {
-			Eye.offsetX = -2;
+		Eye.offsetX = Math.round((entity.rotation_yaw_motion/5)-3);
+		if(Eye.offsetX < -5) {
+			Eye.offsetX = -5;
 		}
 		
-		if(Eye.offsetX > 1) {
-			Eye.offsetX = 1;
+		if(Eye.offsetX > -1) {
+			Eye.offsetX = -1;
 		}
 		Body.render(deathfactor);
 		HandLeft.render(deathfactor);

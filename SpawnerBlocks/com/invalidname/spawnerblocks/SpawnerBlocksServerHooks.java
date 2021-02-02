@@ -6,7 +6,6 @@ import dangerzone.InventoryContainer;
 import dangerzone.Player;
 import dangerzone.ServerHooks;
 import dangerzone.blocks.Blocks;
-import dangerzone.items.Item;
 import dangerzone.items.Items;
 
 public class SpawnerBlocksServerHooks extends ServerHooks {
