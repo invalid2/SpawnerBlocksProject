@@ -27,7 +27,7 @@ public class SpawnerBlocksWorldDecorator extends WorldDecorator{
 				zoff = world.rand.nextInt(16);
 				yoff = world.rand.nextInt(40) + 5;
 				
-				SpawnerBlocksUtils.doBuild(SpawnerBlocksBuilds.spider_nest, world.rand.nextInt(2) == 0 ? SpawnerBlocksBuilds.palette_spidernestsmall_muffin : SpawnerBlocksBuilds.palette_spidernestsmall_skelly, world, dimension, x+xoff, yoff, z+zoff, DZWorldDecorator.things);
+				SpawnerBlocksUtils.doBuild(SpawnerBlocksBuilds.spidernest, world.rand.nextInt(2) == 0 ? SpawnerBlocksBuilds.palette_spidernestsmall_muffin : SpawnerBlocksBuilds.palette_spidernestsmall_skelly, world, dimension, x+xoff, yoff, z+zoff, DZWorldDecorator.things);
 			}
 		}
 		
@@ -47,13 +47,13 @@ public class SpawnerBlocksWorldDecorator extends WorldDecorator{
 		}
 		
 		if(world.rand.nextInt(540) == 0) {
-			putBuildOnSurface( SpawnerBlocksBuilds.vampire_outpost, SpawnerBlocksBuilds.palette_vampirepost, world, dimension, chunkx, chunkz, DZWorldDecorator.things);
+			putBuildOnSurface( SpawnerBlocksBuilds.vampireoutpost, SpawnerBlocksBuilds.palette_vampirepost, world, dimension, chunkx, chunkz, DZWorldDecorator.things);
 			//return;
 		}
 		
 		
 		if(dimension != Dimensions.skyislandsdimension.dimensionID /*&& dimension != SpawnerBlocksMain.skycurrents.dimensionID*/) {
-			if(world.rand.nextInt(800) == 0) {
+			if(world.rand.nextInt(720) == 0) {
 				doGiantSpiderNest( world, dimension, b, chunkx, chunkz);
 				//return;
 			}
@@ -151,175 +151,25 @@ public class SpawnerBlocksWorldDecorator extends WorldDecorator{
 		int xoff = 0, yoff = 0, zoff = 0;
 		int x = chunkx << 4;
 		int z = chunkz << 4;
-		int nesttyperand = world.rand.nextInt(2);
-		int rand = world.rand.nextInt(2);
-		if(rand == 0) {
-			xoff = world.rand.nextInt(16);
-			zoff = world.rand.nextInt(16);
-			yoff = world.rand.nextInt(40) + 21;
-		}
-		if(rand == 1) {
-			xoff = world.rand.nextInt(16);
-			zoff = world.rand.nextInt(16);
-			yoff = world.rand.nextInt(50) + 11;
-		}
 		
-		doFill(world, dimension, x+xoff-6+5, yoff+10, z+zoff-6+5, 12, 2, 12, Blocks.stone.blockID);
+		xoff = world.rand.nextInt(16);
+		zoff = world.rand.nextInt(16);
+		yoff = world.rand.nextInt(30) + 1;
 		
-		putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestcore, world, dimension, x+xoff, yoff, z+zoff, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
+		int type = world.rand.nextInt(2);
+		SpawnerBlocksUtils.doBuild(SpawnerBlocksBuilds.spidernestgiantcore, type == 0? SpawnerBlocksBuilds.palette_spidernestgiant_muffin : SpawnerBlocksBuilds.palette_spidernestgiant_skelly, world, dimension, x+xoff, yoff, z+zoff, DZWorldDecorator.things);
 		
-		putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestcorridorlr, world, dimension, x+xoff-4, yoff+6, z+zoff+2, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-		putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestcorridorlr, world, dimension, x+xoff+10, yoff+6, z+zoff+2, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-		putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestcorridorfb, world, dimension, x+xoff+2, yoff+6, z+zoff-4, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-		putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestcorridorfb, world, dimension, x+xoff+2, yoff+6, z+zoff+10, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
+		if(world.rand.nextInt(2) == 0)
+			SpawnerBlocksUtils.doBuild(SpawnerBlocksBuilds.spidernestgiantside, type == 0? SpawnerBlocksBuilds.palette_spidernestgiant_muffin : SpawnerBlocksBuilds.palette_spidernestgiant_skelly, world, dimension, x+xoff, yoff, z+zoff+16, DZWorldDecorator.things);
 		
-		rand = world.rand.nextInt(2);
-		if(rand == 0)
-			putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestbottom, world, dimension, x+xoff+1, yoff-8, z+zoff+1, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
+		if(world.rand.nextInt(2) == 0)
+			SpawnerBlocksUtils.doBuild(SpawnerBlocksUtils.rotateBuild(SpawnerBlocksBuilds.spidernestgiantside, SpawnerBlocksUtils.BuildAngles.A_90), type == 0? SpawnerBlocksBuilds.palette_spidernestgiant_muffin : SpawnerBlocksBuilds.palette_spidernestgiant_skelly, world, dimension, x+xoff+16, yoff, z+zoff, DZWorldDecorator.things);
 		
-		for(int i = 0; i < 4; i++) {
-			if(i == 0) {
-				rand = world.rand.nextInt(3);
-				if(rand != 0) {
-					putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomf, world, dimension, x+xoff+2, yoff+5, z+zoff+10+4, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-				} else {
-					putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestbigroom, world, dimension, x+xoff+1, yoff+2, z+zoff+10+4, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-					
-					for(int ib = 0; ib < 3; ib++) {
-						if(ib == 0) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomf, world, dimension, x+xoff+2, yoff+5, z+zoff+10+4+8, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallf, world, dimension, x+xoff+3, yoff+7, z+zoff+10+4+7, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-						if(ib == 1) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomr, world, dimension, x+xoff+1-6, yoff+5, z+zoff+10+4+1, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwalll, world, dimension, x+xoff, yoff+7, z+zoff+10+4+2, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-						if(ib == 2) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallrooml, world, dimension, x+xoff+1+8, yoff+5, z+zoff+10+4+1, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallr, world, dimension, x+xoff+8, yoff+7, z+zoff+10+4+2, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-					}
-				}
-			}
-			if(i == 1) {
-				rand = world.rand.nextInt(3);
-				if(rand != 0) {
-					putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomb, world, dimension, x+xoff+2, yoff+5, z+zoff-4-6, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-				} else {
-					putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestbigroom, world, dimension, x+xoff+1, yoff+2, z+zoff-4-8, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-					
-					for(int ib = 0; ib < 3; ib++) {
-						if(ib == 0) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomb, world, dimension, x+xoff+2, yoff+5, z+zoff-4-8-6, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallb, world, dimension, x+xoff+3, yoff+7, z+zoff-4-8-1, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-						if(ib == 1) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomr, world, dimension, x+xoff+1-6, yoff+5, z+zoff-4-1-6, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwalll, world, dimension, x+xoff, yoff+7, z+zoff-4-2-4, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-						if(ib == 2) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallrooml, world, dimension, x+xoff+1+8, yoff+5, z+zoff-4-1-6, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallr, world, dimension, x+xoff+8, yoff+7, z+zoff-4-2-4, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-					}
-				}
-			}
-			if(i == 2) {
-				rand = world.rand.nextInt(3);
-				if(rand != 0) {
-					putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomr, world, dimension, x+xoff-4-6, yoff+5, z+zoff+2, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-				} else {
-					putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestbigroom, world, dimension, x+xoff-8, yoff+2, z+zoff+1, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-					
-					for(int ib = 0; ib < 3; ib++) {
-						if(ib == 0) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomr, world, dimension, x+xoff-8-6, yoff+5, z+zoff+2, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwalll, world, dimension, x+xoff-8-1, yoff+7, z+zoff+3, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-						if(ib == 1) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomf, world, dimension, x+xoff-6-1, yoff+5, z+zoff+9, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallf, world, dimension, x+xoff-4-2, yoff+7, z+zoff+8, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-						if(ib == 2) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomb, world, dimension, x+xoff-6-1, yoff+5, z+zoff-6+1, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallb, world, dimension, x+xoff-4-2, yoff+7, z+zoff, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-					}
-				}
-			}
-			if(i == 3) {
-				rand = world.rand.nextInt(3);
-				if(rand != 0) {
-					putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallrooml, world, dimension, x+xoff+10+4, yoff+5, z+zoff+2, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-				} else {
-					putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestbigroom, world, dimension, x+xoff+10, yoff+2, z+zoff+1, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-					
-					for(int ib = 0; ib < 3; ib++) {
-						if(ib == 0) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallrooml, world, dimension, x+xoff+10+8, yoff+5, z+zoff+2, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallr, world, dimension, x+xoff+10+7, yoff+7, z+zoff+3, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-						if(ib == 1) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomf, world, dimension, x+xoff+10+1, yoff+5, z+zoff+8, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallf, world, dimension, x+xoff+10+2, yoff+7, z+zoff+8, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-						if(ib == 2) {
-							rand = world.rand.nextInt(3);
-							if(rand == 0) {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestsmallroomb, world, dimension, x+xoff+10+1, yoff+5, z+zoff+1-6, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							} else {
-								putBuildOnSolidWTrippleFiller( SpawnerBlocksBuilds.giantnestwallb, world, dimension, x+xoff+10+2, yoff+7, z+zoff, true, Blocks.stone.blockID, Blocks.stickyblock.blockID, 4, Blocks.hardrock.blockID, Blocks.skeletorusspawner.blockID, Blocks.sparklemuffinspawner.blockID, nesttyperand, DZWorldDecorator.things);
-							}
-						}
-					}
-				}
-			}
-		}
+		if(world.rand.nextInt(2) == 0)
+			SpawnerBlocksUtils.doBuild(SpawnerBlocksUtils.rotateBuild(SpawnerBlocksBuilds.spidernestgiantside, SpawnerBlocksUtils.BuildAngles.A_180), type == 0? SpawnerBlocksBuilds.palette_spidernestgiant_muffin : SpawnerBlocksBuilds.palette_spidernestgiant_skelly, world, dimension, x+xoff, yoff, z+zoff-8, DZWorldDecorator.things);
 		
+		if(world.rand.nextInt(2) == 0)
+			SpawnerBlocksUtils.doBuild(SpawnerBlocksUtils.rotateBuild(SpawnerBlocksBuilds.spidernestgiantside, SpawnerBlocksUtils.BuildAngles.A_270), type == 0? SpawnerBlocksBuilds.palette_spidernestgiant_muffin : SpawnerBlocksBuilds.palette_spidernestgiant_skelly, world, dimension, x+xoff-8, yoff, z+zoff, DZWorldDecorator.things);
 		
 	}
 	

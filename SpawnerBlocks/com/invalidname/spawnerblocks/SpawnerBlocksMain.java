@@ -30,6 +30,7 @@ import com.invalidname.spawnerblocks.items.GiantPickaxe;
 import com.invalidname.spawnerblocks.items.GiantShovel;
 import com.invalidname.spawnerblocks.items.GiantStick;
 import com.invalidname.spawnerblocks.items.GiantSword;
+import com.invalidname.spawnerblocks.items.InfoPage;
 import com.invalidname.spawnerblocks.items.ItemGeneric;
 import com.invalidname.spawnerblocks.items.LumpLattenMelting;
 import com.invalidname.spawnerblocks.items.Wayfinder;
@@ -132,6 +133,11 @@ public class SpawnerBlocksMain extends BaseMod {
 	public static Item dracscale = new ItemGeneric("SpawnerBlocks:Drac Scale","spawnerblocksres/items/"+"dracscale.png", 16);
 	public static Item dracmembrane = new ItemGeneric("SpawnerBlocks:Drac Membrane","spawnerblocksres/items/"+"dracmembrane.png", 16);
 	public static Item dracwing = new ItemGeneric("SpawnerBlocks:Drac Wing","spawnerblocksres/items/"+"dracwing.png", 1);
+	
+	
+	//Info pages
+	public static Item infolattenfurnace = new InfoPage("SpawnerBlocks:Drac Wing","spawnerblocksres/items/"+"dracwing.png", "spawnerblocksres/docs/"+"lattenfurnace.xml");
+	
 	
 	//Spawneggs
 	public static Item eggbutterFly = new ItemSpawnEgg("SpawnerBlocks:Spawn BUTTERfly", "spawnerblocksres/items/"+"eggbutterFly.png", "SpawnerBlocks:BUTTERfly");
@@ -265,6 +271,9 @@ public class SpawnerBlocksMain extends BaseMod {
 		Items.registerItem(dracscale);
 		Items.registerItem(dracmembrane);
 		Items.registerItem(dracwing);
+		
+		//Info pages
+		Items.registerItem(infolattenfurnace);
 		
 		//Spawneggs
 		Items.registerItem(eggbutterFly);
